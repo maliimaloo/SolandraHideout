@@ -6,7 +6,7 @@ Le **SolandraHideout** est un plugin Minecraft conçu pour gérer les repaires (
 
 ## Fonctionnalités
 
-- **Gestion des Repaire** : Créez, chargez et gérez les repaires associés aux gangs.
+- **Gestion des Hideouts** : Créez, chargez et gérez les hideouts associés aux gangs.
 - **Améliorations de Mines** : Gérez l'amélioration des mines au sein des repaires, y compris le remplissage des blocs en fonction du niveau de la mine.
 - **Opérations Asynchrones sur la Base de Données** : Gestion asynchrone des opérations sur la base de données pour assurer un gameplay fluide sans interruptions.
 - **Intégration avec WorldEdit** : Utilise WorldEdit pour placer des schématiques et gérer les régions au sein des repaires.
@@ -19,12 +19,12 @@ Le **SolandraHideout** est un plugin Minecraft conçu pour gérer les repaires (
 
 ## Commandes
 
-| Commande             | Description                                              | Permission               |
-| -------------------- | -------------------------------------------------------- | ------------------------ |
-| `/hideout create`    | Crée un nouveau repaire pour votre gang.                 | `hideout.create`         |
-| `/hideout upgrade`   | Améliore la mine au sein de votre repaire.               | `hideout.upgrade`        |
-| `/hideout reset`     | Réinitialise la mine au sein de votre repaire au niveau 0.| `hideout.reset`          |
-| `/hideout list`      | Liste tous les repaires actuellement actifs.             | `hideout.list`           |
+| Commande                      | Description                                           | Permission               |
+|-------------------------------|-------------------------------------------------------|--------------------------|
+| `/hideout`                    | Ouvre le menu de gestion d'un hideout.                | `none`                   |
+| `/hideoutadmin show <player>` | Ouvre le menu de gestion d'un hideout pour un joueur. | `solandra.hideout.admin` |
+| `/hideoutadmin list`          | Donne la liste d'id des hideouts.                     | `solandra.hideout.admin` |
+| `/hideout teleport <id>`      | Télèporte le joueur à l'hideout en question.          | `solandra.hideout.admin` |
 
 ## Configuration
 

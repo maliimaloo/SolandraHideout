@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abcda726-e434-4214-b869-f08b1cb07809" name="Changes" comment="Ajout du README.md">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/commands/HideoutAdminCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/commands/HideoutCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/menu/HideoutMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/menu/HideoutUpgradeMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/utils/MojangAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/Main.java" afterDir="false" />
+    <list default="true" id="abcda726-e434-4214-b869-f08b1cb07809" name="Changes" comment="Subject: [PATCH] Ajout des commandes et menus pour la gestion des hideouts&#10;&#10;- Ajout de la commande `/hideout` pour permettre aux joueurs de gérer leur hideout.&#10;- Ajout de la commande admin `/hideoutadmin` pour les administrateurs afin de lister, montrer ou téléporter vers un hideout spécifique.&#10;- Création du menu `HideoutMenu` pour afficher les informations du hideout, avec des boutons pour se téléporter, améliorer la mine ou dissoudre le hideout.&#10;- Ajout du menu `HideoutUpgradeMenu` permettant aux joueurs d'améliorer la mine de leur hideout.&#10;- Implémentation de l'utilitaire `MojangAPI` pour récupérer l'UUID des joueurs à partir de leur nom.&#10;- Mise à jour du fichier principal pour enregistrer les nouvelles commandes et initialiser les composants nécessaires.">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,12 +115,21 @@
       <option name="project" value="LOCAL" />
       <updated>1725045320776</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Subject: [PATCH] Ajout des commandes et menus pour la gestion des hideouts&#10;&#10;- Ajout de la commande `/hideout` pour permettre aux joueurs de gérer leur hideout.&#10;- Ajout de la commande admin `/hideoutadmin` pour les administrateurs afin de lister, montrer ou téléporter vers un hideout spécifique.&#10;- Création du menu `HideoutMenu` pour afficher les informations du hideout, avec des boutons pour se téléporter, améliorer la mine ou dissoudre le hideout.&#10;- Ajout du menu `HideoutUpgradeMenu` permettant aux joueurs d'améliorer la mine de leur hideout.&#10;- Implémentation de l'utilitaire `MojangAPI` pour récupérer l'UUID des joueurs à partir de leur nom.&#10;- Mise à jour du fichier principal pour enregistrer les nouvelles commandes et initialiser les composants nécessaires.">
+      <option name="closed" value="true" />
+      <created>1725046101760</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1725046101760</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First Commit" />
     <MESSAGE value="Ajout du README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout du README.md" />
+    <MESSAGE value="Subject: [PATCH] Ajout des commandes et menus pour la gestion des hideouts&#10;&#10;- Ajout de la commande `/hideout` pour permettre aux joueurs de gérer leur hideout.&#10;- Ajout de la commande admin `/hideoutadmin` pour les administrateurs afin de lister, montrer ou téléporter vers un hideout spécifique.&#10;- Création du menu `HideoutMenu` pour afficher les informations du hideout, avec des boutons pour se téléporter, améliorer la mine ou dissoudre le hideout.&#10;- Ajout du menu `HideoutUpgradeMenu` permettant aux joueurs d'améliorer la mine de leur hideout.&#10;- Implémentation de l'utilitaire `MojangAPI` pour récupérer l'UUID des joueurs à partir de leur nom.&#10;- Mise à jour du fichier principal pour enregistrer les nouvelles commandes et initialiser les composants nécessaires." />
+    <option name="LAST_COMMIT_MESSAGE" value="Subject: [PATCH] Ajout des commandes et menus pour la gestion des hideouts&#10;&#10;- Ajout de la commande `/hideout` pour permettre aux joueurs de gérer leur hideout.&#10;- Ajout de la commande admin `/hideoutadmin` pour les administrateurs afin de lister, montrer ou téléporter vers un hideout spécifique.&#10;- Création du menu `HideoutMenu` pour afficher les informations du hideout, avec des boutons pour se téléporter, améliorer la mine ou dissoudre le hideout.&#10;- Ajout du menu `HideoutUpgradeMenu` permettant aux joueurs d'améliorer la mine de leur hideout.&#10;- Implémentation de l'utilitaire `MojangAPI` pour récupérer l'UUID des joueurs à partir de leur nom.&#10;- Mise à jour du fichier principal pour enregistrer les nouvelles commandes et initialiser les composants nécessaires." />
   </component>
 </project>
