@@ -4,33 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abcda726-e434-4214-b869-f08b1cb07809" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/api/HideoutAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/api/HideoutAPIImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/api/MineAPI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/api/MineAPIImplementation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/database/HideoutDatabase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/listeners/HideoutListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/manager/HideoutManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/manager/MineBlockDistribution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/manager/MineManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/model/Hideout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/model/Mine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/settings/Settings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/utils/LocationUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/utils/Schematic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/utils/SystemPrint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/logo.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/settings.yml" afterDir="false" />
+    <list default="true" id="abcda726-e434-4214-b869-f08b1cb07809" name="Changes" comment="First Commit">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +48,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Warren\Desktop\Solandra\SolandraHideout\src\main\java\com\solandra\hideout" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Warren\Desktop\Solandra\SolandraHideout" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.solandra.hideout.listeners" />
@@ -121,6 +99,19 @@
       <option name="presentableId" value="Default" />
       <updated>1725017400536</updated>
     </task>
+    <task id="LOCAL-00001" summary="First Commit">
+      <option name="closed" value="true" />
+      <created>1725045128507</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725045128507</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="First Commit" />
   </component>
 </project>
