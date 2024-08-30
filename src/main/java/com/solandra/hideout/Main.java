@@ -4,6 +4,8 @@ import com.solandra.hideout.api.HideoutAPI;
 import com.solandra.hideout.api.HideoutAPIImplementation;
 import com.solandra.hideout.api.MineAPI;
 import com.solandra.hideout.api.MineAPIImplementation;
+import com.solandra.hideout.commands.HideoutAdminCommand;
+import com.solandra.hideout.commands.HideoutCommand;
 import com.solandra.hideout.database.HideoutDatabase;
 import com.solandra.hideout.manager.HideoutManager;
 import com.solandra.hideout.manager.MineManager;
@@ -54,8 +56,9 @@ public class Main extends SimplePlugin {
 
     @Override
     protected void onPluginStart() {
-        initializeListeners();
         initializeAPI();
+        initializeListeners();
+        initializeCommands();
     }
 
     @Override
@@ -100,6 +103,11 @@ public class Main extends SimplePlugin {
 
     private void initializeListeners() {
 
+    }
+
+    private void initializeCommands() {
+        super.registerCommand(new HideoutAdminCommand(this));
+        super.registerCommand(new HideoutCommand(this));
     }
 
     private void initializeAPI() {
