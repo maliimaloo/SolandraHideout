@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="abcda726-e434-4214-b869-f08b1cb07809" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/api/HideoutAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/api/HideoutAPIImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/api/MineAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/api/MineAPIImplementation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/database/HideoutDatabase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/listeners/HideoutListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/manager/HideoutManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/manager/MineBlockDistribution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/manager/MineManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/model/Hideout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/model/Mine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/settings/Settings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/utils/LocationUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/utils/Schematic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/solandra/hideout/utils/SystemPrint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/settings.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="2lNP85uMP0qyImMvE12UrL0iz3C" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.SolandraHideout [clean].executor": "Run",
+    "Maven.SolandraHideout [install].executor": "Run",
+    "Maven.SolandraHideout.executor": "Run",
+    "Maven.SolandraPrisonCore [install].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Warren/Desktop/Solandra/SolandraHideout/src/main/java/com/solandra/hideout"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Warren\Desktop\Solandra\SolandraHideout\src\main\java\com\solandra\hideout" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.solandra.hideout.listeners" />
+      <recent name="com.solandra.hideout.manager" />
+      <recent name="com.solandra.hideout.utils" />
+      <recent name="com.solandra.hideout.model" />
+      <recent name="com.solandra.hideout.settings" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SolandraHideout" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="abcda726-e434-4214-b869-f08b1cb07809" name="Changes" comment="" />
+      <created>1725017400536</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725017400536</updated>
+    </task>
+    <servers />
+  </component>
+</project>
