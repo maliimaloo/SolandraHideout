@@ -14,11 +14,9 @@ import com.sk89q.worldedit.session.ClipboardHolder;
 import com.sk89q.worldedit.util.SideEffectSet;
 import com.solandra.hideout.Main;
 import com.solandra.hideout.database.HideoutDatabase;
+import com.solandra.hideout.manager.builder.HideoutBuilder;
 import com.solandra.hideout.model.Hideout;
-import com.solandra.hideout.model.Mine;
 import com.solandra.hideout.utils.Schematic;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.World;
 import org.mineacademy.fo.Common;
 import org.mineacademy.fo.region.Region;
@@ -36,13 +34,10 @@ import java.util.concurrent.CompletableFuture;
  */
 public class HideoutManager {
 
-    // Constantes
-    private static final String WORLD_NAME = "Hideout";
+    // Messages constants
     private static final String ERROR_PLACE_SCHEMATIC = "Failed to place schematic at region";
     private static final String ERROR_PLACE_SCHEMATIC_DETAILS = "Region: %s, File: %s";
-    private static final String ERROR_CLIPBOARD_NULL = "Impossible de calculer la nouvelle région, Clipboard is null!";
     private static final String LOG_HIDEOUTS_LOADED = "Tous les hideouts ont été chargés en mémoire. (Count: %d)";
-    private static final int INTERVAL_BETWEEN_HIDEOUTS = 300;
 
     private final HideoutDatabase hideoutDatabase;
     private final Map<Integer, Hideout> hideoutCache;
@@ -50,11 +45,9 @@ public class HideoutManager {
     /**
      * Initialise le gestionnaire de hideout en chargeant la base de données des hideouts
      * et en initialisant le cache des hideouts.
-     *
-     * @param plugin L'instance principale du plugin.
      */
-    public HideoutManager(Main plugin) {
-        this.hideoutDatabase = plugin.getHideoutDatabase();
+    public HideoutManager() {
+        this.hideoutDatabase = Main.getInstance().getHideoutDatabase();
         this.hideoutCache = new HashMap<>();
     }
 
@@ -157,28 +150,27 @@ public class HideoutManager {
         return CompletableFuture.runAsync(() -> {
             File schematicFile = Schematic.getHideout();
 
-            try (EditSession editSession = createEditSession(region.getWorld())) {
-                ClipboardFormat clipboardFormat = ClipboardFormats.findByFile(schematicFile);
+            ClipboardFormat clipboardFormat = ClipboardFormats.findByFile(schematicFile);
+            if (clipboardFormat == null) {
+                Common.throwError(new NullPointerException(), ERROR_PLACE_SCHEMATIC, String.format(ERROR_PLACE_SCHEMATIC_DETAILS, region, schematicFile.getPath()));
+                return;
+            }
 
-                try {
-                    assert clipboardFormat != null;
-                    try (ClipboardReader clipboardReader = clipboardFormat.getReader(new FileInputStream(schematicFile))) {
-                        Clipboard clipboard = clipboardReader.read();
+            try (EditSession editSession = createEditSession(region.getWorld());
+                 ClipboardReader clipboardReader = clipboardFormat.getReader(new FileInputStream(schematicFile))) {
 
-                        BlockVector3 clipboardCenter = clipboard.getRegion().getCenter().toBlockPoint();
-                        clipboard.setOrigin(clipboardCenter);
+                 Clipboard clipboard = clipboardReader.read();
+                 BlockVector3 clipboardCenter = clipboard.getRegion().getCenter().toBlockPoint();
+                 clipboard.setOrigin(clipboardCenter);
 
-                        Operation operation = new ClipboardHolder(clipboard)
-                                .createPaste(editSession)
-                                .ignoreAirBlocks(true)
-                                .to(BukkitAdapter.asBlockVector(region.getCenter()))
-                                .build();
+                 Operation operation = new ClipboardHolder(clipboard)
+                        .createPaste(editSession)
+                        .ignoreAirBlocks(true)
+                        .to(BukkitAdapter.asBlockVector(region.getCenter()))
+                        .build();
 
-                        Operations.completeBlindly(operation);
-                    }
-                } catch (NullPointerException exception) {
-                    Common.throwError(exception, ERROR_PLACE_SCHEMATIC, String.format(ERROR_PLACE_SCHEMATIC_DETAILS, region, schematicFile.getPath()));
-                }
+                 Operations.completeBlindly(operation);
+
             } catch (IOException exception) {
                 Common.throwError(exception, ERROR_PLACE_SCHEMATIC, String.format(ERROR_PLACE_SCHEMATIC_DETAILS, region, schematicFile.getPath()));
             }
@@ -190,42 +182,15 @@ public class HideoutManager {
      *
      * @return Un CompletableFuture contenant le nouveau Hideout.
      */
+
     public CompletableFuture<Hideout> calculateNewHideout() {
         return hideoutDatabase.getLastHideout().thenApply(lastHideout -> {
-            Location startLocation = new Location(Bukkit.getWorld(WORLD_NAME), 0, 0, 0);
-
-            Clipboard clipboard = Schematic.loadSchematic(Schematic.getHideout());
-            if (clipboard == null) {
-                Common.throwError(new IllegalArgumentException(ERROR_CLIPBOARD_NULL));
-                return null;
-            }
-
-            if (lastHideout.isPresent()) {
-                Region lastMainRegion = lastHideout.get().getMainRegion();
-                startLocation = lastMainRegion.getPrimary().clone().add(INTERVAL_BETWEEN_HIDEOUTS + clipboard.getDimensions().x(), 0, 0);
-            }
-
-            BlockVector3 dimensions = clipboard.getDimensions();
-
-            Location newMainRegionPrimary = startLocation.clone();
-            Location newMainRegionSecondary = startLocation.clone().add(dimensions.x(), dimensions.y(), dimensions.z());
-            Region newMainRegion = new Region(newMainRegionPrimary, newMainRegionSecondary);
-
-            Location newMineRegionPrimary = startLocation.clone().add(215, 154, 176);
-            Location newMineRegionSecondary = startLocation.clone().add(165, 2, 126);
-            Region newMineRegion = new Region(newMineRegionPrimary, newMineRegionSecondary);
-            Mine newMine = new Mine(newMineRegion, 0);
-
-            Location spawnLocation = startLocation.clone().add(235.500, 155, 151.500);
-            spawnLocation.setYaw(91);
-            spawnLocation.setPitch(-5);
-
-            return new Hideout(0, newMainRegion, newMine, spawnLocation, 0);
+            HideoutBuilder builder = new HideoutBuilder();
+            return builder.buildNewHideout(lastHideout);
         });
     }
 
     // Méthodes privées
-
     /**
      * Recherche un hideout non utilisé, c'est-à-dire un hideout dont le gangOwnerId est égal à 0.
      *

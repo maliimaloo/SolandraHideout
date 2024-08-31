@@ -1,126 +1,93 @@
 package com.solandra.hideout;
 
 import com.solandra.hideout.api.HideoutAPI;
-import com.solandra.hideout.api.HideoutAPIImplementation;
 import com.solandra.hideout.api.MineAPI;
-import com.solandra.hideout.api.MineAPIImplementation;
-import com.solandra.hideout.commands.HideoutAdminCommand;
-import com.solandra.hideout.commands.HideoutCommand;
 import com.solandra.hideout.database.HideoutDatabase;
 import com.solandra.hideout.manager.HideoutManager;
 import com.solandra.hideout.manager.MineManager;
-import com.solandra.hideout.utils.SystemPrint;
-import com.solandra.prisoncore.Core;
+import com.solandra.hideout.bootstrap.PluginInitializer;
+import com.solandra.hideout.bootstrap.StartupLogoLoader;
+import com.solandra.hideout.bootstrap.DatabaseHandler;
 import com.solandra.prisoncore.api.PlayerAPI;
-import org.mineacademy.fo.FileUtil;
 import org.mineacademy.fo.plugin.SimplePlugin;
-
-import java.io.File;
-import java.util.List;
 
 public class Main extends SimplePlugin {
     // API
     private static HideoutAPI hideoutAPI;
     private static MineAPI mineAPI;
 
-    // Constantes
-    private static final String FILE_LOGO_PATH = "logo.txt";
-
-    // Fields
     private PlayerAPI playerAPI;
     private HideoutDatabase hideoutDatabase;
     private HideoutManager hideoutManager;
     private MineManager mineManager;
-    
 
-    public HideoutDatabase getHideoutDatabase() {
-        return hideoutDatabase;
+    @Override
+    protected void onPluginLoad() {
+        PluginInitializer.initializeFields();
     }
 
-    public HideoutManager getHideoutManager() {
-        return hideoutManager;
+    @Override
+    protected void onPluginStart() {
+        PluginInitializer.initializeAPI();
+        PluginInitializer.initializeListeners();
     }
 
-    public MineManager getMineManager() {
-        return mineManager;
+    @Override
+    protected void onPluginStop() {
+        DatabaseHandler.cleanupPlugin();
+    }
+
+    @Override
+    protected String[] getStartupLogo() {
+        return StartupLogoLoader.loadLogo();
     }
 
     public PlayerAPI getPlayerAPI() {
         return playerAPI;
     }
 
-    @Override
-    protected void onPluginLoad() {
-        initializeField();
+    public void setPlayerAPI(PlayerAPI playerAPI) {
+        this.playerAPI = playerAPI;
     }
 
-    @Override
-    protected void onPluginStart() {
-        initializeAPI();
-        initializeListeners();
-        initializeCommands();
+    public HideoutDatabase getHideoutDatabase() {
+        return hideoutDatabase;
     }
 
-    @Override
-    protected void onReloadablesStart() {
-
+    public void setHideoutDatabase(HideoutDatabase hideoutDatabase) {
+        this.hideoutDatabase = hideoutDatabase;
     }
 
-    @Override
-    protected void onPluginStop() {
-        cleanupPlugin();
+    public HideoutManager getHideoutManager() {
+        return hideoutManager;
     }
 
-    @Override
-    protected String[] getStartupLogo() {
-        File file = FileUtil.extract(FILE_LOGO_PATH);
-        List<String> lines = FileUtil.readLines(file);
-
-        String debugMessageDB;
-        if (hideoutDatabase.isLoaded()) {
-            debugMessageDB = SystemPrint.debugColorDB("Connexion établie avec la base de données SQLite.");
-        } else {
-            debugMessageDB = SystemPrint.debugColorDB("\u001b[38;5;9mConnexion échouer avec la base de données SQLite.");
-        }
-
-        lines.add(debugMessageDB);
-        return lines.toArray(new String[0]);
+    public void setHideoutManager(HideoutManager hideoutManager) {
+        this.hideoutManager = hideoutManager;
     }
 
-    private void cleanupPlugin() {
-        if (hideoutDatabase.isLoaded()) {
-            SystemPrint.debugDB("Déconnexion de la base de donnees.");
-            hideoutDatabase.close();
-        }
+    public MineManager getMineManager() {
+        return mineManager;
     }
 
-    private void initializeField() {
-        this.playerAPI = Core.getPlayerAPI();
-        this.hideoutDatabase = new HideoutDatabase();
-        this.hideoutManager = new HideoutManager(this);
-        this.mineManager = new MineManager(this);
-    }
-
-    private void initializeListeners() {
-
-    }
-
-    private void initializeCommands() {
-        super.registerCommand(new HideoutAdminCommand(this));
-        super.registerCommand(new HideoutCommand(this));
-    }
-
-    private void initializeAPI() {
-        hideoutAPI = new HideoutAPIImplementation(this);
-        mineAPI = new MineAPIImplementation(this);
+    public void setMineManager(MineManager mineManager) {
+        this.mineManager = mineManager;
     }
 
     public static HideoutAPI getHideoutAPI() {
         return hideoutAPI;
     }
 
+    public static void setHideoutAPI(HideoutAPI hideoutAPI) {
+        Main.hideoutAPI = hideoutAPI;
+    }
+
     public static MineAPI getMineAPI() {
         return mineAPI;
+    }
+
+    public static void setMineAPI(MineAPI mineAPI) {
+        Main.mineAPI = mineAPI;
     }
 
     public static Main getInstance() {

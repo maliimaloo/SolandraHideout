@@ -6,28 +6,25 @@ import com.solandra.hideout.menu.HideoutMenu;
 import net.brcdev.gangs.GangsPlusApi;
 import net.brcdev.gangs.gang.Gang;
 import org.bukkit.entity.Player;
+import org.mineacademy.fo.annotation.AutoRegister;
 import org.mineacademy.fo.command.SimpleCommand;
 
-public class HideoutCommand extends SimpleCommand {
+@AutoRegister
+public final class HideoutCommand extends SimpleCommand {
     // Constantes pour les messages et sous-commandes
     private static final String NO_GANG_MESSAGE = "Vous devez être dans un gang pour faire cela.";
     private static final String HIDEOUT_NOT_FOUND_MESSAGE = "&cAucun hideout trouvé pour l'id: ";
 
     // Fields
-    private final Main plugin;
-    private final HideoutManager hideoutManager;
+    private final Main plugin = Main.getInstance();
+    private final HideoutManager hideoutManager = Main.getInstance().getHideoutManager();
 
     /**
      * Constructeur de la commande HideoutCommand.
      * Initialise le gestionnaire de repaires (HideoutManager) à partir du plugin principal.
-     *
-     * @param plugin Le plugin principal dont dépend cette commande.
      */
-    public HideoutCommand(Main plugin) {
+    public HideoutCommand() {
         super("hideout|ho");
-
-        this.plugin = plugin;
-        this.hideoutManager = plugin.getHideoutManager();
     }
 
     /**

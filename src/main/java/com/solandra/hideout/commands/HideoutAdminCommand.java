@@ -35,8 +35,8 @@ public class HideoutAdminCommand extends SimpleCommand {
     private static final String HIDEOUT_ADMIN_PERMISSION = "solandra.hideout.admin";
 
     // Fields
-    private final Main plugin;
-    private final HideoutManager hideoutManager;
+    private final Main plugin = Main.getInstance();
+    private final HideoutManager hideoutManager = Main.getInstance().getHideoutManager();
 
     /**
      * Constructeur de la commande HideoutAdminCommand.
@@ -44,11 +44,8 @@ public class HideoutAdminCommand extends SimpleCommand {
     public HideoutAdminCommand(Main plugin) {
         super("hideoutadmin|hoa");
 
-        this.plugin = plugin;
-        this.hideoutManager = plugin.getHideoutManager();
-
-        this.setPermission(HIDEOUT_ADMIN_PERMISSION);
-        this.setDescription("Commande admin des hideouts.");
+        setPermission(HIDEOUT_ADMIN_PERMISSION);
+        setDescription("Commande admin des hideouts.");
     }
 
     /**

@@ -30,8 +30,7 @@ import java.util.concurrent.ConcurrentMap;
  * Gère les opérations liées aux mines, telles que l'amélioration et le remplissage avec des blocs.
  */
 public class MineManager {
-    private final HideoutManager hideoutManager;
-
+    // Fields constants
     private static final long UPGRADE_COOLDOWN = 5000; // 5 secondes en millisecondes
     private static final int MAX_LEVEL = 15; // Niveau maximum pour les mines
 
@@ -42,9 +41,11 @@ public class MineManager {
     private static final String MSG_GANG_NOTIFY = "La mine vient d'être améliorée au niveau %d par %s.";
 
     private final ConcurrentMap<Integer, Long> lastUpgradeTimestamps;
+    private final HideoutManager hideoutManager;
 
-    public MineManager(Main plugin) {
-        this.hideoutManager = plugin.getHideoutManager();
+
+    public MineManager() {
+        this.hideoutManager = Main.getInstance().getHideoutManager();
         this.lastUpgradeTimestamps = new ConcurrentHashMap<>();
     }
 
@@ -73,14 +74,11 @@ public class MineManager {
      * @param hideout Le hideout contenant la mine.
      */
     public void resetMine(Hideout hideout) {
-        Common.log("Current Min Region: Primary |x: " + hideout.getMine().getRegion().getPrimary().getX() + ", z: " + hideout.getMine().getRegion().getPrimary().getZ() + "| Secondary |x: " + hideout.getMine().getRegion().getSecondary().getX() + ", z: " + hideout.getMine().getRegion().getSecondary().getZ());
         Region minRegion = calculateMinRegionBasedOnLevel(hideout.getMine());
         hideout.getMine().setMineRegion(minRegion);
         hideout.getMine().setLevel(0);
 
         updateHideout(hideout);
-        Common.log("Next Min Region: Primary |x: " + minRegion.getPrimary().getX() + ", z: " + minRegion.getPrimary().getZ() + "| Secondary |x: " + minRegion.getSecondary().getX() + ", z: " + minRegion.getSecondary().getZ());
-        Common.log("Current Min Region: Primary |x: " + hideout.getMine().getRegion().getPrimary().getX() + ", z: " + hideout.getMine().getRegion().getPrimary().getZ() + "| Secondary |x: " + hideout.getMine().getRegion().getSecondary().getX() + ", z: " + hideout.getMine().getRegion().getSecondary().getZ());
     }
 
     /**
