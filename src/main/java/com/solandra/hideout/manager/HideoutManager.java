@@ -186,7 +186,7 @@ public class HideoutManager {
     public CompletableFuture<Hideout> calculateNewHideout() {
         return hideoutDatabase.getLastHideout().thenApply(lastHideout -> {
             HideoutBuilder builder = new HideoutBuilder();
-            return builder.buildNewHideout(lastHideout);
+            return builder.buildNewHideout(lastHideout.get());
         });
     }
 
